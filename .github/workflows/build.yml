@@ -31,3 +31,11 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    
+    #Trigger other Repository
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        repository: otto-it-spaulsen/TestGithubActions2
+        event-type: run-pipeline
